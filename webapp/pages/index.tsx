@@ -34,7 +34,7 @@ const Home: NextPage = () => {
             Select language for IAS exam
           </Typography>
           <Typography variant='h5' color={appTheme.palette.text.secondary} align='center'>
-            आप आईएएस परीक्षा कौनसी  भाषा में लिखना चाहते हैं 
+            आप आईएएस परीक्षा कौनसी भाषा में लिखना चाहते हैं 
           </Typography>
           <Box sx={{
             display: 'flex',
