@@ -7,7 +7,8 @@ const SmallCard: React.FC<{label: string, clickHandler: (value: string) => void}
     props.clickHandler(props.label);
   };
 
-  return <Chip variant='outlined' label={props.label} onClick={clickHandler} sx={{height: 96, minWidth: 156}} />;
+  return <Chip variant='outlined' label={props.label} onClick={clickHandler} sx={{height: 96, minWidth: 156, color: appTheme.palette.text.secondary
+  }} />;
 };
 
 export default SmallCard;
