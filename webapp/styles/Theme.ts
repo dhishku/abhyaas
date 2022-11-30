@@ -25,6 +25,9 @@ const appTheme: Theme = createTheme({
     text: {
       primary: '#482C05',
       secondary: '#05162E'
+    },
+    background: {
+      default: '#9C600C'
     }
   },
   typography: {
