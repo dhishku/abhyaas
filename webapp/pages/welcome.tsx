@@ -41,7 +41,7 @@ const Welcome: NextPage = () => {
         flexDirection: 'column',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        height: '100vh'
+        height: '90vh'
       }}>
         <Image src={'/sitting-reading.svg'} width='328' height='244' layout='fixed'/>
         <Typography color={appTheme.palette.text.secondary} variant='h6' align='center'>

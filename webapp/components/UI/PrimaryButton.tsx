@@ -8,7 +8,8 @@ const PrimaryButton: React.FC<{label: string}> = (props) => {
       boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.25)',
       ':hover': {
         backgroundColor: appTheme.palette.background.default
-      }
+      },
+      margin: '8px'
     }}>
       <Typography color={appTheme.palette.text.primary} variant='button' sx={{
         padding: '10px'
