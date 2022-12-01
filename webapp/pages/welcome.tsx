@@ -34,8 +34,6 @@ const Welcome: NextPage = () => {
   }
   return (
     <ThemeProvider theme={appTheme}>
-      <TopBar showRules={true} showWhatsappIcon={true}/>
-      <br />
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',

@@ -33,14 +33,14 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
+      {/* <Head>
         <title>Abhyas</title>
         <meta name="description" content="Abhyas makes you perfect!" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <link rel="icon" href="/logo.png" />
-      </Head>
-      <ThemeProvider theme={appTheme}>
-        <TopBar showRules={true} showWhatsappIcon={true}/>
+      </Head> */}
+      {/* <ThemeProvider theme={appTheme}>
+        <TopBar showRules={true} showWhatsappIcon={true}/> */}
         <br />
         <Box sx={{
           display: 'flex',
@@ -69,8 +69,8 @@ const Home: NextPage = () => {
             Already a user? Sign in
           </Typography>
         </Box>
-      </ThemeProvider>
-    </div>
+      {/* {</ThemeProvider> */}
+    </div> 
   )
 }
 
