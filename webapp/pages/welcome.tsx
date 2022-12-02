@@ -3,14 +3,18 @@ import ShowChartIcon from '@mui/icons-material/ShowChart';
 import { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import axios from 'axios';
 
 import appTheme from '../styles/Theme';
 import languageSelector from "../constants/language";
-import TopBar from "../components/UI/TopBar";
 import PrimaryButton from "../components/UI/PrimaryButton";
+import { baseServerUrl } from "../constants/url";
 
+interface Props {
+  testTakers: number;
+}
 
-const Welcome: NextPage = () => {
+const Welcome: NextPage<Props> = (props) => {
   const router = useRouter();
   const { lang } = router.query;
   let mainContent = '';
@@ -19,17 +23,17 @@ const Welcome: NextPage = () => {
   switch (lang) {
     case languageSelector.english:
       mainContent = 'Attempt 15 real IAS prelims questions and see your predicted prelims score!';
-      footer = '187 others gave this test in last 1 week';
+      footer = `${props.testTakers} others gave this test in last 1 week`;
       buttonLabel = 'Let\'s attempt';
       break;
     case languageSelector.hindi:
       mainContent = 'आईएएस परीक्षा के 15 सवाल कीजिए और अपना अनुमानित प्रिलिम स्कोर देखिए';
-      footer = '187 अन्य ने पिछले 1 सप्ताह में यह टेस्ट दिया है';
+      footer = `${props.testTakers} अन्य ने पिछले 1 सप्ताह में यह टेस्ट दिया है`;
       buttonLabel = 'शुरू करते हैं';
       break;
     default:
       mainContent = 'Attempt 15 real IAS prelims questions and see your predicted prelims score!';
-      footer = '187 others gave this test in last 1 week';
+      footer = `${props.testTakers} others gave this test in last 1 week`;
       buttonLabel = 'Let\'s attempt';
   }
   return (
@@ -61,5 +65,19 @@ const Welcome: NextPage = () => {
     </ThemeProvider>
   );
 };
+
+export async function getStaticProps() {
+  try {
+    const result = await axios.get(baseServerUrl + '/stats/users-taking-test');
+    console.log(result);
+  } catch (e) {
+    console.error(e);
+  }
+  return {
+    props: {
+      testTakers: 100
+    }
+  }
+}
 
 export default Welcome;
