@@ -33,43 +33,33 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      {/* <Head>
-        <title>Abhyas</title>
-        <meta name="description" content="Abhyas makes you perfect!" />
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <link rel="icon" href="/logo.png" />
-      </Head> */}
-      {/* <ThemeProvider theme={appTheme}>
-        <TopBar showRules={true} showWhatsappIcon={true}/> */}
-        <br />
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        height: '100vh'
+      }}>
+        <Typography variant='h5' color={appTheme.palette.text.secondary} align='center'>
+          Select language for IAS exam
+        </Typography>
+        <Typography variant='h5' color={appTheme.palette.text.secondary} align='center'>
+          आप आईएएस परीक्षा कौनसी भाषा में लिखना चाहते हैं 
+        </Typography>
         <Box sx={{
           display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-          height: '100vh'
+          justifyContent: 'space-around',
+          width: '80vw'
         }}>
-          <Typography variant='h5' color={appTheme.palette.text.secondary} align='center'>
-            Select language for IAS exam
-          </Typography>
-          <Typography variant='h5' color={appTheme.palette.text.secondary} align='center'>
-            आप आईएएस परीक्षा कौनसी भाषा में लिखना चाहते हैं 
-          </Typography>
-          <Box sx={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            width: '80vw'
-          }}>
-            <SmallCard 
-              label='English'
-              clickHandler={selectLanguageClickHandler}/>
-            <SmallCard label='हिंदी' clickHandler={selectLanguageClickHandler}/>
-          </Box>
-          <Typography variant='body1' color={appTheme.palette.text.secondary}>
-            Already a user? Sign in
-          </Typography>
+          <SmallCard 
+            label='English'
+            clickHandler={selectLanguageClickHandler}/>
+          <SmallCard label='हिंदी' clickHandler={selectLanguageClickHandler}/>
         </Box>
-      {/* {</ThemeProvider> */}
+        <Typography variant='body1' color={appTheme.palette.text.secondary}>
+          Already a user? Sign in
+        </Typography>
+      </Box>
     </div> 
   )
 }

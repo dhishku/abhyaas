@@ -3,10 +3,12 @@ import Image from 'next/image';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 
 import appTheme from '../../styles/Theme';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
-const TopBar: React.FC<{showRules: boolean, showWhatsappIcon: boolean}> = (props) => {
-  return (
-    <Box sx={{height: 48}}>
+const TopBar: React.FC<{}> = (props) => {
+  const { showTopBar, showRulesIcon, showWhatsappIcon } = useSelector((state: RootState) => state.topBar);
+  const jsx = showTopBar ? <Box sx={{height: 48}}>
       <AppBar position="static" >
       <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
 				<Box sx={{display: 'flex', flexGrow: 2}}>
@@ -16,13 +18,13 @@ const TopBar: React.FC<{showRules: boolean, showWhatsappIcon: boolean}> = (props
 					</Typography>
 				</Box>
 				<Box sx={{display: 'flex', justifyContent: 'end', alignItems: 'end', flexGrow: 1}}>
-					{props.showRules && <ListAltIcon fontSize='large' htmlColor={appTheme.palette.primary.dark} sx={{paddingRight: 2}}/>}
-					{props.showWhatsappIcon && <Image src="/whatsapp.png" height={40} width={40}/>}
+					{showRulesIcon && <ListAltIcon fontSize='large' htmlColor={appTheme.palette.primary.dark} sx={{paddingRight: 2}}/>}
+					{showWhatsappIcon && <Image src="/whatsapp.png" height={40} width={40}/>}
 				</Box>
       </Toolbar>
     </AppBar>
-    </Box>
-  );
+    </Box> : <div></div>
+  return jsx;
 };
 
 export default TopBar;
