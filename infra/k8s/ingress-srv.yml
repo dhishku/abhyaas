@@ -10,6 +10,13 @@ spec:
     - host: abhyaas.dev
       http:
         paths:
+          - path: /api/stats/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: stats-srv
+                port:
+                  number: 3000
           - path: /?(.*)
             pathType: Prefix
             backend:

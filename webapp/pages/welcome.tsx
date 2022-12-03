@@ -8,7 +8,7 @@ import axios from 'axios';
 import appTheme from '../styles/Theme';
 import languageSelector from "../constants/language";
 import PrimaryButton from "../components/UI/PrimaryButton";
-import { baseServerUrl } from "../constants/url";
+import buildClient from "../api/build-client";
 
 interface Props {
   testTakers: number;
@@ -68,14 +68,19 @@ const Welcome: NextPage<Props> = (props) => {
 
 export async function getStaticProps() {
   try {
-    const result = await axios.get(baseServerUrl + '/stats/users-taking-test');
-    console.log(result);
+    const client = buildClient();
+    const data  = await client.get('/api/stats/users-taking-test');
+    return {
+    props: {
+      testTakers: data.data.testTakers
+    }
+  }
   } catch (e) {
     console.error(e);
-  }
-  return {
-    props: {
-      testTakers: 100
+    return {
+      props: {
+        testTakers: 0
+      }
     }
   }
 }
